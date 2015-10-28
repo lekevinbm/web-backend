@@ -11,17 +11,41 @@
                       array('titel' =>'Rapport: De Bruyne blinkt uit, Lukaku valt tegen',
                             'datum' => '13/10/15','inhoud' => 'De Rode Duivels verdienden voor hun historische 3-1 overwinning tegen Israël een dikke 7 voor de gave collectieve prestatie. Maar wie waren de uitblinkers en wie viel tegen? Uitblinker was nog maar eens goudhaantje Kevin De Bruyne die een oververdiende 8 oogstte. Romelu Lukaku van zijn kant kon weer niet overtuigen bij de Duivels en kwam niet verder dan een povere 5.',
                             'afbeelding' => 'img/artikel3.jpg', 
-                            'afbeeldingbeschrijving' => 'Kevin De Bruyne verdiende een 8'))
-        
+                            'afbeeldingbeschrijving' => 'Kevin De Bruyne verdiende een 8'));
  
+$invidueel = false;
+    
+ if ( isset($_GET[ 'id' ] ) )
+    {
+        
+     $id = $_GET['id'];
+     
+     $invidueeel = true;
+     $artikels 			= 	array( $artikels[$id] );
+        
+    }
         
 ?>
 <!DOCTYPE html>
 <html>
-    <title>krantjeeuuh</title>
+    <?php if(!$invidueel): ?>    
+    <title>krantjeeuuh </title>
+    <?php else : ?>
+    <title>Artikel: <?php echo $artikel['titel'] ?></title>
+    <?php endif ?>
+    
     <style>
+        img{
+            width : 100%;  
+        }
+        
         article{
-            text-overflow: ellipsis;   
+            text-overflow: ellipsis;
+            width: 400px;
+            padding: 10px;
+            float:left;
+            
+            
         }
     </style>
     
@@ -35,7 +59,7 @@
                 <p> <?php  echo $artikel['datum'] ?></p>
                 <img src=" <?php echo $artikel['afbeelding'] ?> ">
                 <p> <?php echo substr($artikel['inhoud'],0,50).'...' ?> </p>
-                <a href="index.php?<?php echo $id ?>=0">lees meer</a>
+                <a href="opdracht-get.php?<?php echo $id ?>=0">lees meer</a>
             </article>
             <?php endforeach ?>
     </body>
