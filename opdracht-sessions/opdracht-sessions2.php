@@ -8,11 +8,12 @@
         $_SESSION['data']['email']       =   $_POST[ 'email' ];
         $_SESSION['data']['nickname']    =   $_POST[ 'nickname' ];
     }
+    
+    $straat = (isset($_SESSION['data']['straat']))?$_SESSION['data']['straat']:'';
+    $nummer = (isset($_SESSION['data']['nummer']))?$_SESSION['data']['nummer']:'';
+    $gemeente = (isset($_SESSION['data']['gemeente']))?$_SESSION['data']['gemeente']:'';
+    $postcode = (isset($_SESSION['data']['postcode']))?$_SESSION['data']['postcode']:'';
 
-    $straat		=	( isset( $_SESSION['data']['straat'] ) ) ? $_SESSION['data'][ 'straat'] : '';
-	$nummer		=	( isset( $_SESSION['data']['nummer'] ) ) ? $_SESSION['data'][ 'nummer'] : '';
-    $gemeente		=	( isset( $_SESSION['data']['gemeente'] ) ) ? $_SESSION['data'][ 'gemeente'] : '';
-	$postcode		=	( isset( $_SESSION['data']['postcode'] ) ) ? $_SESSION['data'][ 'postcode'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -23,18 +24,20 @@
         <li><p>email: <?php echo $_SESSION['data']['nickname'] ?></p></li>
     </ul>
     
+    <a href="opdracht-sessions.php?id=destroy">Vernietig sessie</a>
+    
     <form action="opdracht-sessions3.php" method="post">
         <label for="straat">Straat</label><br>
-        <input type="text" name="straat" id="straat"><br>
+        <input type="text" name="straat" id="straat" value="<?php echo $straat ?>"><br>
         
         <label for="nummer">Nummer</label><br>
-        <input type="number" name="nummer" id="nummer"><br>
+        <input type="number" name="nummer" id="nummer" value="<?php echo $nummer ?>"><br>
         
         <label for="gemeente">Gemeente</label><br>
-        <input type="text" name="gemeente" id="gemeente"><br>
+        <input type="text" name="gemeente" id="gemeente" value="<?php echo $gemeente ?>"><br>
         
         <label for="postcode">Postcode</label><br>
-        <input type="text" name="postcode" id="postcode"><br>
+        <input type="text" name="postcode" id="postcode" value="<?php echo $postcode ?>"><br>
         
         <input type="submit" name="submit">
         

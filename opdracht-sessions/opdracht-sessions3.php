@@ -1,4 +1,5 @@
 <?php
+    session_start();
     var_dump( $_POST );
     var_dump( $_SESSION );
 
@@ -6,13 +7,16 @@
     {
         $_SESSION['data']['straat']       =   $_POST[ 'straat' ];
         $_SESSION['data']['nummer']    =   $_POST[ 'nummer' ];
-        $_SESSION['data']['gemente']       =   $_POST[ 'gemeente' ];
+        $_SESSION['data']['gemeente']       =   $_POST[ 'gemeente' ];
         $_SESSION['data']['postcode']    =   $_POST[ 'postcode' ];
     }
 ?>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
     <body>
+        
+        <a href="opdracht-sessions.php?id=destroy">Vernietig sessie</a>
+        
         <ul>
         <li><p>email: <?php echo $_SESSION['data']['email'] ?></p></li>
         <li><p>nickname: <?php echo $_SESSION['data']['nickname'] ?></p></li>
