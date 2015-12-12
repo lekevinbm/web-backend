@@ -1,5 +1,4 @@
 <?php
-    
 
     try{
     $messageContainer = '';
@@ -20,7 +19,9 @@
         
         
     if (isset ($_POST['delete']))
+        
     {
+        var_dump($_POST['delete']);
         $deleteQueryString ='DELETE FROM brouwers
                             WHERE brouwernr = :brouwernr';
        
@@ -74,7 +75,7 @@
                     <?php endforeach ?>
                 </thead>
                 <tbody>
-                    <?php foreach ($fetchRow as $row =>$rowdata): ?> 
+                    <?php foreach ($fetchRow as $row => $rowdata): ?> 
                     <?php if($row%2 !=0 ): ?>
                         <tr class="odd">
                     <?php else: ?>
