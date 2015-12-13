@@ -91,8 +91,9 @@
         $statement3->bindValue(':postcode', $_POST['postcode'] );
         $statement3->bindValue(':gemeente', $_POST['gemeente'] );
         $statement3->bindValue(':omzet', $_POST['omzet'] );
-        $statement3->bindValue(':brouwernr', $brouwernrInt );
+        $statement3->bindValue(':brouwernr',$_POST['brouwernr']  );
         
+               
         
         $gelukt2 = $statement3->execute();
         
@@ -139,7 +140,7 @@
             
             
             <?php if ($showUpdateForm): ?>
-                    <h1> Brouwerij <?php echo $fetchRow[$id]['brnaam'] ?> (# <?php echo $brouwernrToEdit ?> ) wijzigen </h1>
+                    <h1> Brouwerij <?php echo $fetchRow[$id]['brnaam'] ?> (# <?php echo $fetchRow[$id]['brouwernr'] ?> ) wijzigen </h1>
 
                     <ul>
 
@@ -164,7 +165,7 @@
                             <input type="text" name="omzet" id="omzet" value="<?php echo $fetchRow[$id]['omzet'] ?>">
                         </li>
                   </ul>
-                    
+                    <input type="hidden" value="<?php echo $fetchRow[$id]['brouwernr'] ?>" name="brouwernr">
                     <input type="submit" value="wijzigen" name="wijzigen">
 
 
