@@ -80,7 +80,7 @@
                             postcode = :postcode, 
                             gemeente = :gemeente,
                             omzet = :omzet
-                            WHERE brouwernr = :brouwernr';
+                            WHERE brouwernr = :brouwernrToUpdate';
        
         
             
@@ -91,7 +91,7 @@
         $statement3->bindValue(':postcode', $_POST['postcode'] );
         $statement3->bindValue(':gemeente', $_POST['gemeente'] );
         $statement3->bindValue(':omzet', $_POST['omzet'] );
-        $statement3->bindValue(':brouwernr',$_POST['brouwernr']  );
+        $statement3->bindValue(':brouwernrToUpdate',$_POST['brouwernr']  );
         
                
         
