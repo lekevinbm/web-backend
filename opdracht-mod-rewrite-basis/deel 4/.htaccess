@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^original.php?role=admin&user=$1?$ ([^/\.]+)/ 
+DirectoryIndex redirect.php index.php index.html site-down.php
